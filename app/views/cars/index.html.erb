@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Car model</th>
+      <th scope="col">Car color</th>
+      <th scope="col">Destination</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @cars.each do |car| %>
+    <tr>
+      <th scope="row">
+      	<%= car.id %>
+      </th>
+     <div class="col-md-6">
+     	<td>
+      	<%= car.model %>
+      </td>
+    </div>
+      <td><%= car.color %></td>
+      <td><%= car.destination %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
