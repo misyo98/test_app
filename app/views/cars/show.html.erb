@@ -1,0 +1,10 @@
+<%= render 'shared/flash' %>
+<div class="m-auto" id="welcome-block">
+  <h1>Today, I'm going to take my <%= @car.color %> <%= @car.model %> and go to <%= @car.destination %>!
+  </h1>
+  <div class="form-group text-center">
+    <div class="btn btn-secondary btn-lg">
+      <%= link_to "See what places I've visited", cars_path %>
+    </div>
+  </div>
+</div>
