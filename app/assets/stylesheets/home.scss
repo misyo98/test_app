@@ -1,4 +1,4 @@
-/*index-page style*/
+/*home-page style*/
 
 #welcome-block {
   padding: 8em;
@@ -6,17 +6,5 @@
   h1 {
     color: #28a745;
     text-align: center;
-  }
-
-  a {
-    color: white;
-  }
-
-
-  button {
-    &:hover {
-      color: #f97300;
-      transition: .5s ease-in-out ;
-    }
   }
 }

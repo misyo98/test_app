@@ -18,27 +18,30 @@ class CarsController < ApplicationController
 	def create
     @car = Car.new(car_params)
     if @car.save
-      flash[:success] = "Welcome!"
-      redirect_to cars_path
+      flash[:success] = "Have a nice journey!"
+      redirect_to car_path(@car)
     else
-      render 'new'
+      flash.now[:error] = "Something went wrong!"
+      render :new
     end
   end
 
   def update
     @car = resource
     if @car.update(car_params)
-      # redirect_to account_user_path(user: @user)
+      flash[:success] = "The problem is fixed!"
+      redirect_to cars_path
     else
+      flash.now[:error] = "Something went wrong!"
       render :edit
     end
   end
 
-   def destroy
+  def destroy
     @car = resource
     @car.destroy
 
-    # redirect_to account_users_path
+    redirect_to cars_path, notice: 'Successfully deleted.'
   end
 
   private

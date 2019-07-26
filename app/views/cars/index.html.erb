@@ -1,26 +1,44 @@
+<%= render 'shared/flash' %>
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Car model</th>
+      <th scope="col" width="300">Car model</th>
       <th scope="col">Car color</th>
       <th scope="col">Destination</th>
+      <th colspan="3" width=25%>Action</th>
     </tr>
   </thead>
   <tbody>
-  	<% @cars.each do |car| %>
+    <% @cars.each do |car| %>
     <tr>
-      <th scope="row">
-      	<%= car.id %>
-      </th>
-     <div class="col-md-6">
-     	<td>
-      	<%= car.model %>
+      <td>
+        <%= car.model %>
       </td>
-    </div>
-      <td><%= car.color %></td>
-      <td><%= car.destination %></td>
+      <td>
+        <%= car.color %>
+      </td>
+      <td>
+        <%= car.destination %>
+      </td>
+      <td>
+        <%= link_to "Show", car_path(car) %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_car_path(car) %>
+      </td>
+      <td>
+        <%= link_to "Delete", car_path(car), method: :delete, data: {confirm: "Are you sure?"} %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<div class="form-group text-center">
+  <button class="btn btn-success btn-lg">
+    <% if Car.count == 0 %>
+      <%= link_to "Do you want to travel?", new_car_path %>
+    <% else %>
+      <%= link_to "Another journey?", new_car_path %>
+    <% end %>
+  </button>
+</div>
